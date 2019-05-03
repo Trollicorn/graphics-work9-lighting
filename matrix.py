@@ -95,12 +95,22 @@ def mag(v): #magnitude of vector
         s += i * i
     return math.sqrt(s)
 
-def normal(v): #normal vector
+def norm(v): #normal vector
     s = mag(v)
     for i in range(len(v)):
         if v[i]!=0:
             v[i] = v[i] / s
     return v
+
+def mscale(matrix,k): #multiply matrix by constant k, returns new matrix
+    return [ [m[i][j]*k for j in range(len(matrix[0]))] for i in range(len(matrix)) ] #list comprehension
+
+def madd(m1,m2): #adds elements from m2 to m1 so (m1+m2), returns new matrix
+    return [ [m1[i][j]+m2[i][j] for j in range(len(m1[0]))] for i in range(len(m1)) ] #list comprehension
+
+def msubtract(m1,m2): #subtract elements of m2 from m1 so (m1-m2), returns new matrix
+    return [ [m1[i][j]-m2[i][j] for j in range(len(m1[0]))] for i in range(len(m1)) ] #list comprehension
+
 
 def dot(v1,v2):
     s = 0
@@ -123,4 +133,4 @@ def surf(polygon,index):
     for i in range(3):
         d[i] = b[i]-a[i]
         e[i] = c[i]-a[i]
-    return normal(cross(d,e))
+    return norm(cross(d,e))
