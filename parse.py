@@ -15,7 +15,7 @@ def argify(line):
             pass
     return args
 
-def parse(fname, edge, polygon, csystems, screen, zbuffer, color):
+def parse(fname, edge, polygon, csystems, screen, zbuffer, color, view, ambient, light, areflect, dreflect, sreflect):
     transform = {
         "scale": dilate,
         "move": translate,
@@ -57,7 +57,7 @@ def parse(fname, edge, polygon, csystems, screen, zbuffer, color):
             args = argify(args)
             solid[line](polygon,args)
             matrix_mult(csystems[-1],polygon)
-            draw_polygons(polygon,screen,zbuffer,color)
+            draw_polygons(polygon,screen,zbuffer,color,view, ambient, light, areflect, dreflect, sreflect)
             polygon = []
         #elif line == "apply":
         #    matrix_mult(orders,edge)

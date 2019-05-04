@@ -1,6 +1,7 @@
 from display import *
 from matrix import *
-import random
+from lighting import *
+#import random
 
 def draw_lines( matrix, screen, zbuffer,color ):
     for i in range(0,len(matrix)-1,2):
@@ -20,7 +21,7 @@ def add_poly(polygon,x0,y0,z0,x1,y1,z1,x2,y2,z2):
     add_point(polygon,x1,y1,z1)
     add_point(polygon,x2,y2,z2)
 
-def draw_polygons(polygons, screen, zbuffer,colors):
+def draw_polygons(polygons, screen, zbuffer,color, view, ambient, light, areflect, dreflect, sreflect):
     #print(polygons)
 #    clrs = len(colors)
 #    c = 0
@@ -37,8 +38,7 @@ def draw_polygons(polygons, screen, zbuffer,colors):
         #    print "good"
     #        color = colors[c%clrs]
     #        c += 1
-            color = colors[0]
-            colors.append(colors.pop(0))
+            color = get_lighting(norm, view, ambient, light, areflect, dreflect, sreflect)
             scanline(polygons[i],polygons[i+1],polygons[i+2],screen,zbuffer,color)
 #            draw_line(polygons[i][0],polygons[i][1],polygons[i][2],polygons[i+1][0],polygons[i+1][1],polygons[i+1][2],screen,zbuffer,[255,255,255])
 #            draw_line(polygons[i+1][0],polygons[i+1][1],polygons[i+1][2],polygons[i+2][0],polygons[i+2][1],polygons[i+2][2],screen,zbuffer,[255,255,255])

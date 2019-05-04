@@ -1,5 +1,4 @@
 from matrix import *
-from functools import map
   # IMPORANT NOTE
 
   # Ambient light is represented by a color value
@@ -41,7 +40,7 @@ def calculate_specular(light, sreflect, view, normal): # S = I * K * ( (2*N*(N d
     langle = dot(normie,lighty)
     colors = light[COLOR]
     viewy = norm(view)
-    return [(colors[i]*dreflect[i]*dot(msubtract(mscale(normie,dot(normie,lighty)*2),lighty),viewy))**SPECULAR_EXP for i in range(3)] #list comprenshion
+    return [(colors[i]*sreflect[i]*dot(vsubtract(vscale(normie,dot(normie,lighty)*2),lighty),viewy))**SPECULAR_EXP for i in range(3)] #list comprenshion
 
 def limit_color(color):
     for c in range(len(color)):

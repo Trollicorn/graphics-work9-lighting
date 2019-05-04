@@ -102,14 +102,14 @@ def norm(v): #normal vector
             v[i] = v[i] / s
     return v
 
-def mscale(matrix,k): #multiply matrix by constant k, returns new matrix
-    return [ [m[i][j]*k for j in range(len(matrix[0]))] for i in range(len(matrix)) ] #list comprehension
+def vscale(vector,k): #multiply vector by constant k, returns new vector
+    return [ vector[i]*k for i in range(len(vector)) ] #list comprehension
 
-def madd(m1,m2): #adds elements from m2 to m1 so (m1+m2), returns new matrix
-    return [ [m1[i][j]+m2[i][j] for j in range(len(m1[0]))] for i in range(len(m1)) ] #list comprehension
+def vadd(v1,v2): #adds elements from v2 to v1 so (v1+v2), returns new vector
+    return [ v1[i]+v2[i] for i in range(len(v1)) ] #list comprehension
 
-def msubtract(m1,m2): #subtract elements of m2 from m1 so (m1-m2), returns new matrix
-    return [ [m1[i][j]-m2[i][j] for j in range(len(m1[0]))] for i in range(len(m1)) ] #list comprehension
+def vsubtract(v1,v2): #subtract elements of v2 from v1 so (v1-v2), returns new vector
+    return [ v1[i]-v2[i] for i in range(len(v1)) ] #list comprehension
 
 
 def dot(v1,v2):
