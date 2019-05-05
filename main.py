@@ -26,7 +26,9 @@ dreflect = [0.5,
 sreflect = [0.5,
             0.5,
             0.5]
-
+#areflect = [0,0,0]
+#dreflect = [0,0,0]
+#sreflect = [0,0,0]
 
 
 screen = new_screen()

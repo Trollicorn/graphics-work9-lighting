@@ -40,9 +40,10 @@ def calculate_specular(light, sreflect, view, normal): # S = I * K * ( (2*N*(N d
     langle = dot(normie,lighty)
     colors = light[COLOR]
     viewy = norm(view)
-    return [(colors[i]*sreflect[i]*dot(vsubtract(vscale(normie,dot(normie,lighty)*2),lighty),viewy))**SPECULAR_EXP for i in range(3)] #list comprenshion
+    return [(colors[i]*sreflect[i]*dot(vsubtract(vscale(normie,dot(normie,lighty)*2),lighty),viewy)**SPECULAR_EXP) for i in range(3)] #list comprenshion
 
 def limit_color(color):
-    for c in range(len(color)):
-        color[c] = 255 if color[c] > 255 else 0 if color[c] < 0 else color[c]
+    for c in range(3):
+        color[c] = 255 if color[c] > 255 else 0 if color[c] < 0 else int(color[c])
+    #print(color)
     return color
