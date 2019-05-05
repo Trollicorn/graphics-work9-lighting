@@ -39,4 +39,4 @@ t = new_matrix()
 ident(t)
 csystems = [ t ]
 
-parse('scripts/script', edges, polygons, csystems, screen, zbuffer, color, view, ambient, light, areflect, dreflect, sreflect)
+parse('scripts/bript', edges, polygons, csystems, screen, zbuffer, color, view, ambient, light, areflect, dreflect, sreflect)
